@@ -15,3 +15,7 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+
+my-spring-boot-app/.mvn/*
+my-spring-boot-app/mvnw
