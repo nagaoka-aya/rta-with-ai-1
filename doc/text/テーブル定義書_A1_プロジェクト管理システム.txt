@@ -1,0 +1,753 @@
+# 1 システムアカウント
+
+論理テーブル名					システムアカウント											物理テーブル名						SYSTEM_ACCOUNT																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																							U																											
+1	ユーザID					USER_ID					ユーザID_FK					INTEGER					1	○																						外部キー：ユーザ（ユーザID）						
+2	ログインID					LOGIN_ID					ログインID					VARCHAR			20			○	1A																											
+3	パスワード					USER_PASSWORD					アカウントパスワード					VARCHAR			64			○																												
+4	パスワード有効期限					PASSWORD_EXPIRATION_DATE					日付					DATE						○																												
+5	認証失敗回数					FAILED_COUNT					認証失敗回数					SMALLINT						○																												
+6	有効期限(FROM)					EFFECTIVE_DATE_FROM					日付					DATE																																		
+7	有効期限(TO)					EFFECTIVE_DATE_TO					日付					DATE																																		
+8	最終ログイン日時					LAST_LOGIN_DATE_TIME					日時					TIMESTAMP																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 2 プロジェクト
+
+論理テーブル名					プロジェクト											物理テーブル名						PROJECT																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	プロジェクトID					PROJECT_ID					プロジェクトID					SERIAL					1	○																												
+2	プロジェクト名					PROJECT_NAME					プロジェクト名					VARCHAR			128			○																												
+3	プロジェクト種別					PROJECT_TYPE					プロジェクト種別					VARCHAR			2			○																												
+4	プロジェクト分類					PROJECT_CLASS					プロジェクト分類					VARCHAR			2			○																												
+5	プロジェクト開始日付					PROJECT_START_DATE					日付					DATE						○																												
+6	プロジェクト終了日付					PROJECT_END_DATE					日付					DATE						○																												
+7	組織ID					ORGANIZATION_ID					組織ID_FK					INTEGER						○																						外部キー：組織（組織ID）						
+8	顧客ID					CLIENT_ID					顧客ID_FK					INTEGER						○																												
+9	プロジェクトマネージャー					PROJECT_MANAGER					ユーザ氏名（漢字）					VARCHAR			128			○																												
+10	プロジェクトリーダー					PROJECT_LEADER					ユーザ氏名（漢字）					VARCHAR			128			○																												
+11	備考					NOTE					備考					VARCHAR			512																															
+12	売上高					SALES					金額					INTEGER																																		
+13	バージョン番号					VERSION_NO					バージョン番号					BIGINT						○																		1										
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 3 プロジェクト担当者
+
+論理テーブル名					プロジェクト担当者											物理テーブル名						PROJECT_USER																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	プロジェクトID					PROJECT_ID					プロジェクトID_FK					INTEGER					1	○																						外部キー：プロジェクト（プロジェクトID）						
+2	ユーザID					USER_ID					ユーザID_FK					INTEGER					2	○																						外部キー：プロジェクト（ユーザID）						
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 4 ユーザ
+
+論理テーブル名					ユーザ											物理テーブル名						USERS																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	ユーザID					USER_ID					ユーザID					SERIAL					1	○																												
+2	漢字氏名					KANJI_NAME					ユーザ氏名（漢字）					VARCHAR			128			○																												
+3	ふりがな					KANA_NAME					ユーザ氏名（ふりがな）					VARCHAR			128			○																												
+4	PM職フラグ					PM_FLAG					フラグ					BOOLEAN						○																												
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 5 組織
+
+論理テーブル名					組織											物理テーブル名						ORGANIZATION																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	組織ID					ORGANIZATION_ID					組織ID					SERIAL					1	○																												
+2	組織名					ORGANIZATION_NAME					組織名					VARCHAR			128																															
+3	上位組織ID					UPPER_ORGANIZATION					組織ID_FK					INTEGER																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 6 業務日付
+
+論理テーブル名					業務日付											物理テーブル名						BUSINESS_DATE																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	区分					SEGMENT_ID					業務日付区分					VARCHAR			2		1	○																												
+2	業務日付					BIZ_DATE					業務日付					VARCHAR			8																															
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 7 コード名称
+
+論理テーブル名					コード名称											物理テーブル名						CODE_NAME																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	コードID					CODE_ID					コードID					VARCHAR			8		1	○																												
+2	コード値					CODE_VALUE					コード値					VARCHAR			2		2	○																												
+3	言語					LANG					言語					VARCHAR			2		3	○																												
+4	ソート順					SORT_ORDER					ソート順					VARCHAR			1			○																												
+5	名称					CODE_NAME					コード名称					VARCHAR			50			○																												
+6	略称					SHORT_NAME					コード略称					VARCHAR			50																															
+7	オプション名称1					OPTION01					オプション名称					VARCHAR			40																															
+8	オプション名称2					OPTION02					オプション名称					VARCHAR			40																															
+9	オプション名称3					OPTION03					オプション名称					VARCHAR			40																															
+10	オプション名称4					OPTION04					オプション名称					VARCHAR			40																															
+11	オプション名称5					OPTION05					オプション名称					VARCHAR			40																															
+12	オプション名称6					OPTION06					オプション名称					VARCHAR			40																															
+13	オプション名称7					OPTION07					オプション名称					VARCHAR			40																															
+14	オプション名称8					OPTION08					オプション名称					VARCHAR			40																															
+15	オプション名称9					OPTION09					オプション名称					VARCHAR			40																															
+16	オプション名称10					OPTION10					オプション名称					VARCHAR			40																															
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 8 コードパターン
+
+論理テーブル名					コードパターン											物理テーブル名						CODE_PATTERN																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	コードID 					CODE_ID					コードID					VARCHAR			8		1	○																						外部キー：コード名称（コードID）						
+2	コード値 					CODE_VALUE					コード値					VARCHAR			2		2	○																						外部キー：コード名称（コード値）						
+3	言語 					LANG					言語					VARCHAR			2		3	○																						外部キー：コード名称（言語）						
+4	コードパターン1					PATTERN01					コードパターン					VARCHAR			1			○																												
+5	コードパターン2					PATTERN02					コードパターン					VARCHAR			1																															
+6	コードパターン3					PATTERN03					コードパターン					VARCHAR			1																															
+7	コードパターン4					PATTERN04					コードパターン					VARCHAR			1																															
+8	コードパターン5					PATTERN05					コードパターン					VARCHAR			1																															
+9	コードパターン6					PATTERN06					コードパターン					VARCHAR			1																															
+10	コードパターン7					PATTERN07					コードパターン					VARCHAR			1																															
+11	コードパターン8					PATTERN08					コードパターン					VARCHAR			1																															
+12	コードパターン9					PATTERN09					コードパターン					VARCHAR			1																															
+13	コードパターン10					PATTERN10					コードパターン					VARCHAR			1																															
+14	コードパターン11					PATTERN11					コードパターン					VARCHAR			1																															
+15	コードパターン12					PATTERN12					コードパターン					VARCHAR			1																															
+16	コードパターン13					PATTERN13					コードパターン					VARCHAR			1																															
+17	コードパターン14					PATTERN14					コードパターン					VARCHAR			1																															
+18	コードパターン15					PATTERN15					コードパターン					VARCHAR			1																															
+19	コードパターン16					PATTERN16					コードパターン					VARCHAR			1																															
+20	コードパターン17					PATTERN17					コードパターン					VARCHAR			1																															
+21	コードパターン18					PATTERN18					コードパターン					VARCHAR			1																															
+22	コードパターン19					PATTERN19					コードパターン					VARCHAR			1																															
+23	コードパターン20					PATTERN20					コードパターン					VARCHAR			1																															
+																																																		
+
+
+# 9 プロジェクトワーク
+
+論理テーブル名					プロジェクトワーク											物理テーブル名						PROJECT_WORK																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	プロジェクトワークID					PROJECT_WORK_ID					プロジェクトワークID					SERIAL					1	○																												
+2	プロジェクトID					PROJECT_ID					プロジェクトID_FK					INTEGER																																		
+3	プロジェクト名					PROJECT_NAME					プロジェクト名					VARCHAR			128			○																												
+4	プロジェクト種別					PROJECT_TYPE					プロジェクト種別					VARCHAR			2			○																												
+5	プロジェクト分類					PROJECT_CLASS					プロジェクト分類					VARCHAR			2			○																												
+6	プロジェクト開始日付					PROJECT_START_DATE					日付					DATE						○																												
+7	プロジェクト終了日付					PROJECT_END_DATE					日付					DATE						○																												
+8	組織ID					ORGANIZATION_ID					組織ID					INTEGER						○																												
+9	顧客ID					CLIENT_ID					顧客ID					INTEGER						○																												
+10	プロジェクトマネージャー					PROJECT_MANAGER					ユーザ氏名（漢字）					VARCHAR			128			○																												
+11	プロジェクトリーダー					PROJECT_LEADER					ユーザ氏名（漢字）					VARCHAR			128			○																												
+12	備考					NOTE					備考					VARCHAR			512																															
+13	売上高					SALES					金額					INTEGER																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 10 メール送信要求
+
+論理テーブル名					メール送信要求											物理テーブル名						MAIL_REQUEST																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	メール送信要求ID					MAIL_REQUEST_ID					メール送信要求ID					VARCHAR			20		1	○																												
+2	件名					SUBJECT					メール件名					VARCHAR			100																															
+3	送信者メールアドレス					MAIL_FROM					メールアドレス					VARCHAR			256																															
+4	返信先メールアドレス					REPLY_TO					メールアドレス					VARCHAR			256																															
+5	差戻し先メールアドレス					RETURN_PATH					メールアドレス					VARCHAR			256																															
+6	文字セット					CHARSET					文字セット					VARCHAR			20																															
+7	ステータス					STATUS					メールステータス					VARCHAR			1																															
+8	要求日時					REQUEST_DATETIME					日時					TIMESTAMP																																		
+9	送信日時					SEND_DATETIME					日時					TIMESTAMP																																		
+11	本文					MAIL_BODY					メール本文					VARCHAR			1000																															
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 11 メールテンプレート
+
+論理テーブル名					メールテンプレート											物理テーブル名						MAIL_TEMPLATE																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	メールテンプレートID					MAIL_TEMPLATE_ID					メールテンプレートID					VARCHAR			10		1	○																												
+2	言語					LANG					言語					VARCHAR			2		2	○																												
+3	件名					SUBJECT					メール件名					VARCHAR			100																															
+4	文字セット					CHARSET					文字セット					VARCHAR			20																															
+5	本文					MAIL_BODY					メール本文					VARCHAR			1000																															
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 12 メール送信先
+
+論理テーブル名					メール送信先											物理テーブル名						MAIL_RECIPIENT																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	メール送信要求ID					MAIL_REQUEST_ID					メール送信要求ID					VARCHAR			20		1	○																						外部キー：メール送信要求(メール送信要求ID)						
+2	連番					SERIAL_NUMBER					連番					INTEGER					2	○																												
+3	送信先区分					RECIPIENT_TYPE					メール送信先区分					VARCHAR			1																															
+4	メールアドレス					MAIL_ADDRESS					メールアドレス					VARCHAR			256																															
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 13 メール添付ファイル
+
+論理テーブル名					メール添付ファイル											物理テーブル名						MAIL_ATTACHED_FILE																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	メール送信要求ID					MAIL_REQUEST_ID					メール送信要求ID					VARCHAR			20		1	○																						外部キー：メール送信要求(メール送信要求ID)						
+2	連番					SERIAL_NUMBER					連番					INTEGER					2	○																												
+3	添付ファイル名					FILE_NAME					添付ファイル名					VARCHAR			100																															
+4	Content-Type					CONTENT_TYPE					コンテンツタイプ					VARCHAR			30																															
+5	添付ファイル					ATTACHED_FILE					添付ファイル					BYTEA																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 14 Springセッション
+
+論理テーブル名					Springセッション											物理テーブル名						SPRING_SESSION																												
+テーブル説明					Spring Frameworkが使用するテーブル。DDLも提供されているため、ドメイン定義は行わない。																																													
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																							U	B	B																									
+1	プライマリーID					PRIMARY_ID					-					CHAR			36		1	○																												
+2	セッションID					SESSION_ID					-					CHAR			36			○	1A																											
+3	作成日時					CREATION_TIME					-					BIGINT						○																												
+4	最終アクセス日時					LAST_ACCESS_TIME					-					BIGINT						○																												
+5	最大非活性時間					MAX_INACTIVE_INTERVAL					-					INTEGER						○																												
+6	有効期限					EXPIRY_TIME					-					BIGINT						○		1A																										
+7	プリンシパル名					PRINCIPAL_NAME					-					VARCHAR			100						1A																									
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 15 Springセッション属性
+
+論理テーブル名					Springセッション属性											物理テーブル名						SPRING_SESSION_ATTRIBUTES																												
+テーブル説明					Spring Frameworkが使用するテーブル。DDLも提供されているため、ドメイン定義は行わない。																																													
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	セッションプライマリID					SESSION_PRIMARY_ID					-					CHAR			36		1	○																						外部キー：SPRINGセッション（プライマリーID）						
+2	属性名					ATTRIBUTE_NAME					-					VARCHAR			200		2	○																												
+3	属性値					ATTRIBUTE_BYTES					-					BYTEA						○																												
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 16 バッチジョブ実行
+
+論理テーブル名					バッチジョブ実行											物理テーブル名						BATCH_JOB_EXECUTION																												
+テーブル説明					Spring Frameworkが使用するテーブル。DDLも提供されているため、ドメイン定義は行わない。																																													
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	ジョブ実行ID					JOB_EXECUTION_ID					-					BIGINT					1	○																												
+2	バージョン番号					VERSION					-					BIGINT																																		
+3	ジョブインスタンスID					JOB_INSTANCE_ID					-					BIGINT						○																						外部キー：バッチジョブインスタンス（ジョブインスタンスID）						
+4	作成日時					CREATE_TIME					-					TIMESTAMP						○																												
+5	開始日時					START_TIME					-					TIMESTAMP																																		
+6	終了日時					END_TIME					-					TIMESTAMP																																		
+7	ステータス					STATUS					-					VARCHAR			10																															
+8	終了コード					EXIT_CODE					-					VARCHAR			2500																															
+9	終了メッセージ					EXIT_MESSAGE					-					VARCHAR			2500																															
+10	最終更新日時					LAST_UPDATED					-					TIMESTAMP																																		
+11	ジョブ構成場所					JOB_CONFIGURATION_LOCATION					-					VARCHAR			2500																															
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 17 バッチジョブインスタンス
+
+論理テーブル名					バッチジョブインスタンス											物理テーブル名						BATCH_JOB_INSTANCE																												
+テーブル説明					Spring Frameworkが使用するテーブル。DDLも提供されているため、ドメイン定義は行わない。																																													
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																							U																											
+1	ジョブインスタンスID					JOB_INSTANCE_ID					-					BIGINT					1	○																												
+2	バージョン番号					VERSION					-					BIGINT																																		
+3	ジョブ名					JOB_NAME					-					VARCHAR			100			○	1A																											
+4	ジョブキー					JOB_KEY					-					VARCHAR			32			○	2A																											
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 18 バッチジョブ実行コンテキスト
+
+論理テーブル名					バッチジョブ実行コンテキスト											物理テーブル名						BATCH_JOB_EXECUTION_CONTEXT																												
+テーブル説明					Spring Frameworkが使用するテーブル。DDLも提供されているため、ドメイン定義は行わない。																																													
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	ジョブ実行ID					JOB_EXECUTION_ID					-					BIGINT					1	○																						外部キー：バッチジョブ実行（ジョブ実行ID）						
+2	ショートコンテキスト					SHORT_CONTEXT					-					VARCHAR			2500			○																												
+3	シリアライズドコンテキスト					SERIALIZED_CONTEXT					-					TEXT																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 19 バッチジョブ実行パラメータ
+
+論理テーブル名					バッチジョブ実行パラメータ											物理テーブル名						BATCH_JOB_EXECUTION_PARAMS																												
+テーブル説明					Spring Frameworkが使用するテーブル。DDLも提供されているため、ドメイン定義は行わない。																																													
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	ジョブ実行ID					JOB_EXECUTION_ID					-					BIGINT						○																						外部キー：バッチジョブ実行（ジョブ実行ID）						
+2	データ型					TYPE_CD					-					VARCHAR			6			○																												
+3	キー名					KEY_NAME					-					VARCHAR			100			○																												
+4	文字列値					STRING_VAL					-					VARCHAR			250																															
+5	日時値					DATE_VAL					-					TIMESTAMP																																		
+6	整数値					LONG_VAL					-					BIGINT																																		
+7	実数値					DOUBLE_VAL					-					FLOAT8																																		
+8	一意識別フラグ					IDENTIFYING					-					CHAR			1			○																												
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 20 バッチステップ実行
+
+論理テーブル名					バッチステップ実行											物理テーブル名						BATCH_STEP_EXECUTION																												
+テーブル説明					Spring Frameworkが使用するテーブル。DDLも提供されているため、ドメイン定義は行わない。																																													
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	ステップ実行ID					STEP_EXECUTION_ID					-					BIGINT					1	○																												
+2	バージョン番号					VERSION					-					BIGINT						○																												
+3	ステップ名					STEP_NAME					-					VARCHAR			100			○																												
+4	ジョブ実行ID					JOB_EXECUTION_ID					-					BIGINT						○																						外部キー：バッチジョブ実行（ジョブ実行ID）						
+5	開始日時					START_TIME					-					TIMESTAMP						○																												
+6	終了日時					END_TIME					-					TIMESTAMP																																		
+7	ステータス					STATUS					-					VARCHAR			10																															
+8	コミット回数					COMMIT_COUNT					-					BIGINT																																		
+9	読み込みデータ件数					READ_COUNT					-					BIGINT																																		
+10	フィルタリングデータ件数					FILTER_COUNT					-					BIGINT																																		
+11	書込データ件数					WRITE_COUNT					-					BIGINT																																		
+12	読込スキップデータ件数					READ_SKIP_COUNT					-					BIGINT																																		
+13	書込スキップデータ件数					WRITE_SKIP_COUNT					-					BIGINT																																		
+14	プロセススキップデータ件数					PROCESS_SKIP_COUNT					-					BIGINT																																		
+15	ロールバック回数					ROLLBACK_COUNT					-					BIGINT																																		
+16	終了コード					EXIT_CODE					-					VARCHAR			2500																															
+17	終了メッセージ					EXIT_MESSAGE					-					VARCHAR			2500																															
+18	最終更新日時					LAST_UPDATED					-					TIMESTAMP																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 21 バッチステップ実行コンテキスト
+
+論理テーブル名					バッチステップ実行コンテキスト											物理テーブル名						BATCH_STEP_EXECUTION_CONTEXT																												
+テーブル説明					Spring Frameworkが使用するテーブル。DDLも提供されているため、ドメイン定義は行わない。																																													
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	ステップ実行ID					STEP_EXECUTION_ID					-					BIGINT					1	○																						外部キー：バッチステップ実行（ステップ実行ID）						
+2	ショートコンテキスト					SHORT_CONTEXT					-					VARCHAR			2500			○																												
+3	シリアライズドコンテキスト					SERIALIZED_CONTEXT					-					TEXT																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 22 常駐バッチ状態管理
+
+論理テーブル名					常駐バッチ状態管理											物理テーブル名						RESIDENT_BATCH_STATE																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	ジョブID					JOB_ID					ジョブID					VARCHAR			20		1	○																												
+2	実行フラグ					RUNNING					フラグ					BOOLEAN						○																												
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 23 ユーザ別従事プロジェクト
+
+論理テーブル名					ユーザ別従事プロジェクト											物理テーブル名						PROJECTS_BY_USER																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	ユーザID					USER_ID					ユーザID_FK					INTEGER					1	○																						外部キー：ユーザ（ユーザID）						
+2	要求ID					REQUEST_ID					要求ID_FK					BIGINT																												外部キー：ユーザ別従事プロジェクト作成要求（ID）						
+3	ファイル名					FILE_NAME					ファイル名					VARCHAR			50																															
+4	作成日時					CREATE_DATETIME					日時					TIMESTAMP																																		
+5	有効期限					EXPIRE_DATETIME					日時					TIMESTAMP																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+
+
+# 24 ユーザ別従事プロジェクト作成要求
+
+論理テーブル名					ユーザ別従事プロジェクト作成要求											物理テーブル名						PROJECTS_BY_USER_REQUEST																												
+テーブル説明																																																		
+																																																		
+No.	論理名称					物理名称					ドメイン名					データ型			桁数		PK	必須	INDEX							項目定義										初期値		"暗号化
+対象"		備考						
+																							1	2	3	4	5	6	7																					
+																																																		
+1	ID					ID					要求ID					BIGSERIAL					1	○																												
+2	ステータス					STATUS					要求ステータス					VARCHAR			2			○																												
+3	要求日時					REQUEST_DATETIME					日時					TIMESTAMP						○																												
+4	ユーザID					USER_ID					ユーザID_FK					INTEGER						○																						外部キー：ユーザ（ユーザID）						
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
+																																																		
