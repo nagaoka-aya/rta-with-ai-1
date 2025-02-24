@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.myapp.mapper.OrganizationRepository">
+    <select id="findAllDepartments" resultType="com.example.myapp.model.Organization">
+        SELECT * FROM organizations WHERE type = 'department'
+    </select>
+
+    <select id="findDepartmentsByParentId" parameterType="long" resultType="com.example.myapp.model.Organization">
+        SELECT * FROM organizations WHERE parent_id = #{parentId}
+    </select>
+</mapper>
