@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.myapp.mapper.ProjectRepository">
-    <insert id="save" parameterType="com.example.myapp.model.Project">
+    <insert id="save" parameterType="com.example.myapp.entity.Project">
         INSERT INTO projects (name, description, start_date, end_date)
         VALUES (#{name}, #{description}, #{startDate}, #{endDate})
     </insert>

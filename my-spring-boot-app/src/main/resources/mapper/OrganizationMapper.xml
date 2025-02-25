@@ -4,11 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.myapp.mapper.OrganizationRepository">
-    <select id="findAllDepartments" resultType="com.example.myapp.model.Organization">
+    <select id="findAllDepartments" resultType="com.example.myapp.entity.Organization">
         SELECT * FROM organizations WHERE type = 'department'
     </select>
 
-    <select id="findDepartmentsByParentId" parameterType="long" resultType="com.example.myapp.model.Organization">
+    <select id="findDepartmentsByParentId" parameterType="long" resultType="com.example.myapp.entity.Organization">
         SELECT * FROM organizations WHERE parent_id = #{parentId}
     </select>
 </mapper>
