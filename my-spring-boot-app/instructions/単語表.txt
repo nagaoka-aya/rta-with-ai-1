@@ -1,0 +1,87 @@
+# プロジェクト登録システム 実装用単語表
+
+## システムアーキテクチャ用語
+
+| 日本語 | 英語 | 説明 |
+|--------|------|------|
+| コントローラー層 | Controller layer | HTTPリクエスト処理、View制御を担当 |
+| サービス層 | Service layer | ビジネスロジックの処理を担当 |
+| リポジトリ/マッパー層 | Repository/Mapper layer | データベースアクセスを担当 |
+| エンティティ | Entity | DBのテーブル構造を表現するクラス |
+| モデル | Model | データ転送や画面表示のためのクラス |
+| 設定クラス | Configuration | アプリケーション設定を管理するクラス |
+
+## エンティティと属性
+
+| 日本語 | 英語 | 説明 |
+|--------|------|------|
+| プロジェクト | Project | プロジェクト情報を管理するエンティティ |
+| プロジェクトID | projectId | プロジェクトの一意識別子 |
+| プロジェクト名 | projectName | プロジェクトの名称 |
+| プロジェクト種別 | projectType | プロジェクトの種類分類 |
+| プロジェクト区分 | projectClass | プロジェクトのレベル分類（SS/S/A/B/C/D） |
+| プロジェクト開始日付 | projectStartDate | プロジェクトの開始日 |
+| プロジェクト終了日付 | projectEndDate | プロジェクトの終了予定日 |
+| 組織ID | organizationId | プロジェクトを担当する組織の識別子 |
+| 顧客ID | clientId | 関連する顧客の識別子 |
+| プロジェクトマネージャー | projectManager | プロジェクト管理者の氏名 |
+| プロジェクトリーダー | projectLeader | プロジェクトのリーダー氏名 |
+| 備考 | note | 追加情報やコメント |
+| 売上高 | sales | プロジェクトの予定売上高（千円単位） |
+| バージョン番号 | versionNo | 楽観的ロック用のバージョン管理番号 |
+
+## 画面関連用語
+
+| 日本語 | 英語 | 説明 |
+|--------|------|------|
+| プロジェクト登録画面 | projectRegistIndex | プロジェクト情報を入力する画面 |
+| プロジェクト登録確認画面 | projectRegistConfirm | 入力情報を確認する画面 |
+| プロジェクト登録完了画面 | projectRegistComplete | 登録完了を通知する画面 |
+| 事業部 | department | 上位組織を選択するプルダウン |
+| 部門 | subDepartment | 下位組織を選択するプルダウン |
+| PJ名 | projectName | プロジェクト名入力欄 |
+| PJ種別 | projectType | プロジェクト種別選択欄 |
+| PJ分類 | projectClass | プロジェクト区分選択欄（ラジオボタン） |
+| 売上高(千円) | sales | 売上高入力欄 |
+| 顧客 | client | 顧客情報表示・選択欄 |
+| PM | projectManager | プロジェクトマネージャー入力欄 |
+| PL | projectLeader | プロジェクトリーダー入力欄 |
+| 開始日 | startDate | プロジェクト開始日入力欄 |
+| 終了日 | endDate | プロジェクト終了日入力欄 |
+| 備考 | remarks | 備考入力欄 |
+| 確認ボタン | confirmButton | 入力内容確認へ進むボタン |
+| 戻るボタン | backButton | 前の画面に戻るボタン |
+| 登録ボタン | registerButton | 情報を登録するボタン |
+
+## 機能・処理用語
+
+| 日本語 | 英語 | 説明 |
+|--------|------|------|
+| 初期表示 | initialDisplay | 画面の初期表示処理 |
+| 部門リスト取得 | fetchDepartments | 事業部選択に応じた部門リスト取得 |
+| 顧客検索 | customerSearch | 顧客を検索するポップアップ表示 |
+| バリデーション | validation | 入力値の妥当性検証処理 |
+| 必須チェック | requiredFieldCheck | 必須項目入力確認 |
+| 日付大小関係チェック | dateRangeCheck | 開始日≦終了日の検証 |
+| プロジェクト登録 | projectRegistration | プロジェクト情報をDBに登録 |
+
+## APIおよび外部連携
+
+| 日本語 | 英語 | 説明 |
+|--------|------|------|
+| 顧客管理システム | customerManagementSystem | 顧客情報を管理する外部システム |
+| 顧客詳細取得API | customerDetailApi | 顧客情報を取得するAPI |
+| コード情報取得 | fetchCodeInformation | コード値や名称を取得する処理 |
+
+## 技術用語
+
+| 日本語 | 英語 | 説明 |
+|--------|------|------|
+| MyBatis | MyBatis | SQLマッピングフレームワーク |
+| RestTemplate | RestTemplate | HTTPクライアントライブラリ |
+| Spring Boot | Spring Boot | Javaアプリケーションフレームワーク |
+| エンドポイント | endpoint | Webアプリケーションの通信接点 |
+| サブミット | submit | フォームの送信処理 |
+| プルダウン | pulldown | ドロップダウン選択式UI要素 |
+| ラジオボタン | radio button | 単一選択式UI要素 |
+| カレンダー | calendar | 日付選択UI要素 |
