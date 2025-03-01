@@ -1,8 +1,8 @@
-package com.example.service;
+package com.example.myapp.service;
 
-import com.example.dto.OrganizationDto;
-import com.example.dto.ProjectDto;
-import com.example.mapper.OrganizationMapper;
+import com.example.myapp.entity.Organization;
+import com.example.myapp.dto.ProjectDto;
+import com.example.myapp.repository.OrganizationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +17,7 @@ import java.util.List;
 public class ProjectService {
     
     @Autowired
-    private OrganizationMapper organizationMapper;
+    private OrganizationRepository organizationRepository;
     
     /**
      * プロジェクト登録画面の初期表示データを取得します。
@@ -29,7 +29,7 @@ public class ProjectService {
         ProjectDto projectDto = new ProjectDto();
         
         // 最上位組織（事業部）のリストを取得
-        List<OrganizationDto> divisions = organizationMapper.findTopLevelOrganizations();
+        List<Organization> divisions = organizationRepository.findAllDepartments();
         projectDto.setDivisions(divisions);
         
         // その他の初期データがあれば設定
@@ -44,9 +44,9 @@ public class ProjectService {
      * @param divisionId 事業部ID
      * @return 部門DTOのリスト
      */
-    public List<OrganizationDto> getDepartmentListByDivisionId(String divisionId) {
+    public List<Organization> getDepartmentListByDivisionId(Long divisionId) {
         // 指定された事業部IDをもとに、配下の部門リストを取得
-        return organizationMapper.findOrganizationsByParentId(divisionId);
+        return organizationRepository.findDepartmentsByParentId(divisionId);
     }
     
     // その他のプロジェクト関連サービスメソッド

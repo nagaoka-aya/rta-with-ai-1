@@ -10,6 +10,6 @@ public class MyController {
     @GetMapping("/")
     public String getIndex(Model model) {
         model.addAttribute("message", "Welcome to My Spring Boot Application!");
-        return "index";
+        return "login";
     }
 }
