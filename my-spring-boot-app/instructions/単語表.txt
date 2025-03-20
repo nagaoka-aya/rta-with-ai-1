@@ -1,3 +1,5 @@
+変数名、フィールド名、クラス名等を名付ける場合は以下の単語表に従い単語を生成してください。
+
 # プロジェクト登録システム 実装用単語表
 
 ## システムアーキテクチャ用語
@@ -85,3 +87,23 @@
 | プルダウン | pulldown | ドロップダウン選択式UI要素 |
 | ラジオボタン | radio button | 単一選択式UI要素 |
 | カレンダー | calendar | 日付選択UI要素 |
+
+## 顧客選択機能用語
+
+| 日本語 | 英語 | 説明 |
+|--------|------|------|
+| 顧客選択 | customerSelection | 顧客情報を検索・選択する機能 |
+| 顧客名 | customerName | 顧客の名称 |
+| 業種 | industryType | 顧客の業種分類 |
+| 顧客リスト | customerList | 検索結果の顧客一覧 |
+| 顧客数 | customerCount | 検索結果の顧客件数 |
+| 検索ボタン | searchButton | 顧客検索を実行するボタン |
+| 選択ボタン | selectButton | 選択した顧客を確定するボタン |
+| サブウィンドウ | subWindow | メイン画面とは別に開く小さな画面 |
+| 顧客検索API | customerSearchApi | 顧客情報を検索するためのAPI |
+| 検索結果 | searchResult | 検索処理の結果データ |
+| 呼び出し元画面 | callerScreen | サブウィンドウを開いた元の画面 |
+| 非同期通信 | asynchronousCommunication | バックグラウンドでのデータ通信方式 |
+| エラーメッセージ | errorMessage | エラー発生時に表示するメッセージ |
+| アラートメッセージ | alertMessage | 警告・通知のためのポップアップメッセージ |
+| 業種コード | industryCode | 業種を識別するコード値 |

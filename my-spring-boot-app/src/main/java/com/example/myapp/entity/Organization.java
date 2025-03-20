@@ -1,16 +1,16 @@
 package com.example.myapp.entity;
 
 public class Organization {
-    private Long organizationId;
+    private Integer organizationId;
     private String organizationName;
     private Integer upperOrganization;
 
     // Getters and Setters
-    public Long getOrganizationId() {
+    public Integer getOrganizationId() {
         return organizationId;
     }
 
-    public void setOrganizationId(Long organizationId) {
+    public void setOrganizationId(Integer organizationId) {
         this.organizationId = organizationId;
     }
 
